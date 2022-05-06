@@ -1,0 +1,416 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+:root {
+    /*======== Colors ======== */
+    --body-color: #f0f1f5;
+    --side-color: #FFF;
+    --primary-color: #4783FF;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #2D3456;
+    /* =======Transition=======*/
+    --trans-3: all 0.3s ease;
+    --trans-4: all 0.45s ease;
+    --trans-5: all 0.55s ease;
+}
+
+
+/*======== SIDE BAR ========*/
+
+body {
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--trans-3);
+}
+
+body.dark {
+    --body-color: #18191A;
+    --side-color: #242526;
+    --primary-color: #3A3B3C;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+}
+
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 20px 14px;
+    background: var(--side-color);
+    transition: var(--trans-5);
+    z-index: 9999;
+    .menu {
+        margin-top: 20px;
+    }
+    header {
+        position: relative;
+        // Position Logo
+        .image-text {
+            display: flex;
+            align-items: center;
+        }
+        // Icon Arrow Right
+        .toggle {
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            height: 25px;
+            width: 25px;
+            background: var(--primary-color);
+            transform: translateY(-50%) rotate(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            color: var(--side-color);
+            font-size: 22px;
+            transition: var(--trans-3);
+        }
+    }
+    .image-text {
+        // Size Logo IDigisoftBox
+        img {
+            width: 55px;
+            border-radius: 6px;
+        }
+        // Name & Profession
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            .name {
+                font-weight: 600;
+            }
+            .profession {
+                margin-top: -2px;
+            }
+        }
+    }
+}
+
+.sidebar.close {
+    width: 88px;
+}
+
+
+/*======== Reuseable CSS ========*/
+
+.sidebar {
+    .text {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-color);
+        translate: var(--trans-4);
+        white-space: nowrap;
+        opacity: 1;
+    }
+    .image {
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+
+
+/*======== Reuseable CSS ========*/
+
+
+/* Style UL LI */
+
+.sidebar {
+    li {
+        height: 50px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            font-size: 20px;
+        }
+        .icon,
+        .text {
+            color: var(--text-color);
+            transition: var(--trans-3);
+        }
+        a {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            transition: var(--trans-4);
+        }
+    }
+    .search-box {
+        background: var(--primary-color-light);
+        border-radius: 5px !important;
+        transition: var(--trans-5);
+    }
+    .link-text {
+        transition: var(--trans-4);
+    }
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px !important;
+    color: var(--text-color);
+    background: var(--primary-color-light);
+    transition: var(--trans-5);
+}
+
+.sidebar li a:hover {
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--side-color);
+}
+
+.sidebar.close header .toggle {
+    transform: translateY(-50%);
+    transition: var(--trans-3);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
+
+.sidebar {
+    .menu-bar {
+        height: calc(100% - 50px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.menu-bar {
+    .menu-links {
+        padding: 0;
+        margin: 0;
+        text-decoration-line: none;
+        a {
+            text-decoration: none;
+        }
+        .dropdownMenu-Content {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color-light);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 10px 12px;
+            border-radius: 20px;
+            z-index: 1;
+            .data {
+                font-size: 18px;
+                a {
+                    color: var(--text-color) !important;
+                    &:hover {
+                        color: var(--side-color) !important;
+                    }
+                }
+                &:hover {
+                    border-radius: 12px;
+                    background-color: var(--primary-color);
+                }
+            }
+        }
+        .dropdownMenu:hover .dropdownMenu-Content {
+            display: block;
+            min-width: 300px;
+        }
+    }
+    padding-top: 20px;
+    .mode {
+        position: relative;
+        border-radius: 6px;
+        background: var(--primary-color-light);
+        .moon-sun {
+            height: 50px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+        }
+        i {
+            position: absolute;
+            transition: var(--trans-3);
+        }
+        .toggle-switch {
+            height: 100%;
+            position: absolute;
+            min-width: 60px;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: var(--primary-color-light);
+            .switch {
+                position: relative;
+                height: 22px;
+                width: 44px;
+                border-radius: 25px;
+                background: var(--toggle-color);
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 5px;
+                    transform: translateY(-50%);
+                    background: var(--side-color);
+                    transition: var(--trans-4);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.sidebar .bottom-content {
+    a {
+        text-decoration: none;
+    }
+}
+
+body.dark .switch::before {
+    left: 25px !important;
+}
+
+.menu-bar .mode i.sun {
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun {
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.sun {
+    opacity: 0;
+}
+
+
+/* Style UL LI */
+
+
+/*======== SIDE BAR ========*/
+
+
+/*======== DASHBOARD ========*/
+
+.home {
+    position: relative;
+    display: flex;
+    left: 250px;
+    height: 100vh;
+    width: 94.9%;
+    width: calc(100vh-250px);
+    transition: var(--trans-5);
+    background: var(--body-color);
+    .text {
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--text-color);
+    }
+    .container-left {
+        width: 50%;
+        margin: 0px 20px;
+        form {
+            width: 100%;
+            margin: 50px 50px;
+        }
+        hr {
+            width: 83%;
+        }
+        label {
+            font-size: 20px;
+            width: 100%;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        select {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="number"] {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="email"] {
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+    .container-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: 50% 100%;
+        }
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 130px;
+        .btn {
+            padding: 10px 30px;
+            margin: 10px 10px;
+            font-size: 20px;
+        }
+    }
+}
+
+.sidebar.close~.home {
+    left: 88px;
+    width: calc(100%-88px);
+}
+
+
+/*======== DASHBOARD ========*/
