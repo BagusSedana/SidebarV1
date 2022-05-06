@@ -1,0 +1,515 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+:root {
+  /*======== Colors ======== */
+  --body-color: #f0f1f5;
+  --side-color: #FFF;
+  --primary-color: #4783FF;
+  --primary-color-light: #F6F5FF;
+  --toggle-color: #DDD;
+  --text-color: #2D3456;
+  /* =======Transition=======*/
+  --trans-3: all 0.3s ease;
+  --trans-4: all 0.45s ease;
+  --trans-5: all 0.55s ease;
+}
+
+/*======== SIDE BAR ========*/
+body {
+  height: 100vh;
+  background: var(--body-color);
+  -webkit-transition: var(--trans-3);
+  transition: var(--trans-3);
+}
+
+body.dark {
+  --body-color: #18191A;
+  --side-color: #242526;
+  --primary-color: #3A3B3C;
+  --primary-color-light: #3A3B3C;
+  --toggle-color: #FFF;
+  --text-color: #CCC;
+}
+
+body.dark .sidebar header .toggle {
+  color: var(--text-color);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 20px 14px;
+  background: var(--side-color);
+  -webkit-transition: var(--trans-5);
+  transition: var(--trans-5);
+  z-index: 9999;
+}
+
+.sidebar .menu {
+  margin-top: 20px;
+}
+
+.sidebar header {
+  position: relative;
+}
+
+.sidebar header .image-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar header .toggle {
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  height: 25px;
+  width: 25px;
+  background: var(--primary-color);
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+  color: var(--side-color);
+  font-size: 22px;
+  -webkit-transition: var(--trans-3);
+  transition: var(--trans-3);
+}
+
+.sidebar .image-text img {
+  width: 55px;
+  border-radius: 6px;
+}
+
+.sidebar .image-text .header-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar .image-text .header-text .name {
+  font-weight: 600;
+}
+
+.sidebar .image-text .header-text .profession {
+  margin-top: -2px;
+}
+
+.sidebar.close {
+  width: 88px;
+}
+
+/*======== Reuseable CSS ========*/
+.sidebar .text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  translate: var(--trans-4);
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.sidebar .image {
+  min-width: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sidebar.close .text {
+  opacity: 0;
+}
+
+/*======== Reuseable CSS ========*/
+/* Style UL LI */
+.sidebar li {
+  height: 50px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar li .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 60px;
+  font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text {
+  color: var(--text-color);
+  -webkit-transition: var(--trans-3);
+  transition: var(--trans-3);
+}
+
+.sidebar li a {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  -webkit-transition: var(--trans-4);
+  transition: var(--trans-4);
+}
+
+.sidebar .search-box {
+  background: var(--primary-color-light);
+  border-radius: 5px !important;
+  -webkit-transition: var(--trans-5);
+  transition: var(--trans-5);
+}
+
+.sidebar .link-text {
+  -webkit-transition: var(--trans-4);
+  transition: var(--trans-4);
+}
+
+.search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px !important;
+  color: var(--text-color);
+  background: var(--primary-color-light);
+  -webkit-transition: var(--trans-5);
+  transition: var(--trans-5);
+}
+
+.sidebar li a:hover {
+  background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+  color: var(--side-color);
+}
+
+.sidebar.close header .toggle {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: var(--trans-3);
+  transition: var(--trans-3);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+  color: var(--text-color);
+}
+
+.sidebar .menu-bar {
+  height: calc(100% - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu-bar {
+  padding-top: 20px;
+}
+
+.menu-bar .menu-links {
+  padding: 0;
+  margin: 0;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+.menu-bar .menu-links a {
+  text-decoration: none;
+}
+
+.menu-bar .menu-links .dropdownMenu-Content {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color-light);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 10px 12px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.menu-bar .menu-links .dropdownMenu-Content .data {
+  font-size: 18px;
+}
+
+.menu-bar .menu-links .dropdownMenu-Content .data a {
+  color: var(--text-color) !important;
+}
+
+.menu-bar .menu-links .dropdownMenu-Content .data a:hover {
+  color: var(--side-color) !important;
+}
+
+.menu-bar .menu-links .dropdownMenu-Content .data:hover {
+  border-radius: 12px;
+  background-color: var(--primary-color);
+}
+
+.menu-bar .menu-links .dropdownMenu:hover .dropdownMenu-Content {
+  display: block;
+  min-width: 300px;
+}
+
+.menu-bar .mode {
+  position: relative;
+  border-radius: 6px;
+  background: var(--primary-color-light);
+}
+
+.menu-bar .mode .moon-sun {
+  height: 50px;
+  width: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-bar .mode i {
+  position: absolute;
+  -webkit-transition: var(--trans-3);
+  transition: var(--trans-3);
+}
+
+.menu-bar .mode .toggle-switch {
+  height: 100%;
+  position: absolute;
+  min-width: 60px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 6px;
+  background: var(--primary-color-light);
+}
+
+.menu-bar .mode .toggle-switch .switch {
+  position: relative;
+  height: 22px;
+  width: 44px;
+  border-radius: 25px;
+  background: var(--toggle-color);
+}
+
+.menu-bar .mode .toggle-switch .switch::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  top: 50%;
+  left: 5px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: var(--side-color);
+  -webkit-transition: var(--trans-4);
+  transition: var(--trans-4);
+  cursor: pointer;
+}
+
+.sidebar .bottom-content a {
+  text-decoration: none;
+}
+
+body.dark .switch::before {
+  left: 25px !important;
+}
+
+.menu-bar .mode i.sun {
+  opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun {
+  opacity: 1;
+}
+
+body.dark .menu-bar .mode i.sun {
+  opacity: 0;
+}
+
+/* Style UL LI */
+/*======== SIDE BAR ========*/
+/*======== DASHBOARD ========*/
+.home {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 250px;
+  height: 100vh;
+  width: 94.9%;
+  width: calc(100vh-250px);
+  -webkit-transition: var(--trans-5);
+  transition: var(--trans-5);
+  background: var(--body-color);
+}
+
+.home .text {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.home .container-left {
+  width: 50%;
+  margin: 0px 20px;
+}
+
+.home .container-left form {
+  width: 100%;
+  margin: 50px 50px;
+}
+
+.home .container-left hr {
+  width: 83%;
+}
+
+.home .container-left label {
+  font-size: 20px;
+  width: 100%;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.home .container-left select {
+  width: 100%;
+  font-size: 16px;
+}
+
+.home .container-left input[type="text"] {
+  width: 100%;
+  font-size: 16px;
+}
+
+.home .container-left input[type="number"] {
+  width: 100%;
+  font-size: 16px;
+}
+
+.home .container-left input[type="email"] {
+  width: 100%;
+  font-size: 16px;
+}
+
+.home .container-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+}
+
+.home .container-right img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -o-object-position: 50% 100%;
+     object-position: 50% 100%;
+}
+
+.home .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 130px;
+}
+
+.home .button .btn {
+  padding: 10px 30px;
+  margin: 10px 10px;
+  font-size: 20px;
+}
+
+.sidebar.close ~ .home {
+  left: 88px;
+  width: calc(100%-88px);
+}
+
+/*======== DASHBOARD ========*/
+/*# sourceMappingURL=style.css.map */
