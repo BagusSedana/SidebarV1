@@ -16,12 +16,12 @@ li {
 
 :root {
     /*======== Colors ======== */
-    --body-color: #E4E9F7;
+    --body-color: #f0f1f5;
     --side-color: #FFF;
-    --primary-color: #695CFE;
+    --primary-color: #4783FF;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
+    --text-color: #2D3456;
     /* =======Transition=======*/
     --trans-3: all 0.3s ease;
     --trans-4: all 0.45s ease;
@@ -59,7 +59,7 @@ body.dark .sidebar header .toggle {
     padding: 20px 14px;
     background: var(--side-color);
     transition: var(--trans-5);
-    z-index: 100;
+    z-index: 9999;
     .menu {
         margin-top: 20px;
     }
@@ -158,6 +158,7 @@ body.dark .sidebar header .toggle {
         .icon,
         .text {
             color: var(--text-color);
+            transition: var(--trans-3);
         }
         a {
             height: 100%;
@@ -170,8 +171,11 @@ body.dark .sidebar header .toggle {
     }
     .search-box {
         background: var(--primary-color-light);
-        border-radius: 6px !important;
+        border-radius: 5px !important;
         transition: var(--trans-5);
+    }
+    .link-text {
+        transition: var(--trans-4);
     }
 }
 
@@ -182,7 +186,7 @@ body.dark .sidebar header .toggle {
     border: none;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 6px !important;
+    border-radius: 5px !important;
     color: var(--text-color);
     background: var(--primary-color-light);
     transition: var(--trans-5);
@@ -217,6 +221,14 @@ body.dark .sidebar li a:hover .text {
 }
 
 .menu-bar {
+    .menu-links {
+        padding: 0;
+        margin: 0;
+        text-decoration-line: none;
+        a {
+            text-decoration: none;
+        }
+    }
     padding-top: 20px;
     .mode {
         position: relative;
@@ -266,6 +278,12 @@ body.dark .sidebar li a:hover .text {
     }
 }
 
+.sidebar .bottom-content {
+    a {
+        text-decoration: none;
+    }
+}
+
 body.dark .switch::before {
     left: 25px !important;
 }
@@ -293,16 +311,73 @@ body.dark .menu-bar .mode i.sun {
 
 .home {
     position: relative;
+    display: flex;
     left: 250px;
     height: 100vh;
-    width: calc(100%-250px);
+    width: 94.9%;
+    width: calc(100vh-250px);
     transition: var(--trans-5);
     background: var(--body-color);
     .text {
         font-size: 30px;
         font-weight: 500;
         color: var(--text-color);
-        padding: 8px 40px;
+    }
+    .container-left {
+        width: 50%;
+        margin: 0px 20px;
+        form {
+            width: 100%;
+            margin: 50px 50px;
+        }
+        hr {
+            width: 83%;
+        }
+        label {
+            font-size: 20px;
+            width: 100%;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        select {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="number"] {
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="email"] {
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+    .container-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: 50% 100%;
+        }
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 130px;
+        .btn {
+            padding: 10px 30px;
+            margin: 10px 10px;
+            font-size: 20px;
+        }
     }
 }
 
